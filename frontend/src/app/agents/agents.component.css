@@ -1,0 +1,111 @@
+#initial-profile-id{
+    z-index: 2;
+    font-size: 18px;
+    right: 0;
+    left: 0;
+    background: url("src/assets/images/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    padding-top: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    min-height: 90%;
+  }
+
+.two-agents-div{
+    position: relative;
+    color: green;
+    width: 90%;
+    height: 20rem;
+    margin: 0% 0% 2% 2%;
+}
+
+.profile-div-left{
+    position: absolute;
+    background-color: rgba(22, 54, 31, 0.8);
+    margin:  0% 0% 2% 2%;
+    width: 40%;
+    height: 20rem;
+}
+
+.profile-div-right{
+    position: absolute;
+    background-color: rgba(22, 54, 31, 0.8);
+    margin: 0% 0% 2% 62%;
+    width: 40%;
+    height: 20rem;
+}
+
+
+@media screen and (min-width: 1920px){
+    .profile-div-left{
+        height: 22rem;
+    }
+
+    .profile-div-right{
+        height: 22rem;
+    }
+} 
+
+.left-side{
+    position: absolute;
+    background-color:  rgba(220,220,220);
+    left: 5%;
+    top: 12%;
+    height: 75%;
+    width: 30%;
+}
+
+.right-side{
+  position: absolute;  
+  left: 40%;
+  top: 6%;
+  height: 87%;
+  width: 55%;
+}
+
+.basic-data{
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+}
+
+.rest-data{
+    color: white;
+    font-size: 14px;
+   
+    width: 100%;
+    margin: 0.5%;
+}
+
+.description-data{
+    color: white;
+    margin: 0% 0% 0% 1%;
+    height: 50%;
+    width: 100%;
+    font-size: 15px;
+    top: 20%;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.description-data::-webkit-scrollbar {
+    width: 4px;
+}
+
+.description-data::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+
+.description-data::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+.description-data::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}

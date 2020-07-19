@@ -1,0 +1,37 @@
+<div id="ore-header-id">
+  <button class="close-button" (click)="closeOfferRealEstateForm()">&times;</button>
+  <h3 align="center">Ponudite svoju nekretninu</h3>
+  <h4 align="center">Popunite formular ili nas kontaktirajte na</h4>
+  <h4 align="center">011 xx xx xxx</h4>
+</div>
+
+<div id="ore-body-id">
+  <p class="ore-p">Ime * </p>
+  <input id="ore-name-id" class="ore-input" type="text" required ngModel minlength="3" maxlength="25" #name="ngModel"
+    #nameparam>
+  <label id="ore-name-error" class="ore-error"></label>
+
+  <p class="ore-p">Kontakt telefon *</p>
+  <input id="ore-phone-id" class="ore-input" type="text" required ngModel minlength="9" maxlength="18" #phone="ngModel"
+    #phoneparam>
+  <label id="ore-phone-error" class="ore-error"></label>
+
+  <p class="ore-p">Vrsta saradnje *</p>
+  <select id="ore-cooperation-id" class="ore-select" #cooperation>
+    <option value="sale">Prodaja</option>
+    <option value="rent">Izdavanje</option>
+  </select>
+
+  <p class="ore-p">Grad *</p>
+  <select id="ore-city-id" class="ore-select" #city>
+    <option value="bg">Beograd</option>
+    <option value="ns">Novi Sad</option>
+  </select>
+
+  <button class="ore-button" id="close-button-id" (click)="checkOfferRealEstateForm(nameparam.value, phoneparam.value) ?
+          submitOfferRealEstateForm(nameparam.value, phoneparam.value, cooperation.value, city.value) : null">Pošaljite
+    zahtev</button>
+
+  <label id="ore-email-error" class="ore-error"></label>
+  <label id="ore-server-error-success" class="ore-error"></label>
+</div>

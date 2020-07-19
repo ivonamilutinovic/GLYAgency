@@ -1,0 +1,43 @@
+<div id="initial-id">
+  <div class="search-container">
+    <div>
+      <input type="radio" id="buy-id" name="city-selection" value="sale" checked />
+      <label for="buy-id" class="search-container-label">Prodaja</label>
+      <input type="radio" id="rent-id" name="city-selection" value="rent" />
+      <label for="rent-id" class="search-container-label">Izdavanje</label>
+    </div>
+
+    <div class="search-box">
+      <input id="search-input-id" type="text" class="search-input" #inputstring (keydown.enter)="searchForRealEstate()"
+        placeholder="Unesite ID nekretnine ili naziv ulice" />
+      <button type="submit" class="search-button" (click)="searchForRealEstate()">
+        <span class="glyphicon glyphicon-search"></span>
+      </button>
+    </div>
+
+    <select id="search-select-id" (change)="onChangeCity($event.target.value)">
+      <option selected disabled hidden>Izaberite grad</option>
+      <option value="bg" class="search-option">Beograd</option>
+      <option value="ns" class="search-option">Novi Sad</option>
+    </select>
+    <label id="city-id-error" class="hre-error"></label>
+  </div>
+</div>
+
+<div id="about-agency">
+  <h3>Naša online agencija Vam nudi niz pogodnosti poput:</h3>
+  <ul>
+    <li>Detaljno predstavljenih nekretnina</li>
+    <li>Punu stručnu i pravnu podršku</li>
+    <li>Online zakazivanje gledanja nekretnine</li>
+    <li>Podršku agenta preko chata svakog radnog dana u periodu od 8 do 20 časova</li>
+    <li>Najpovoljnije cene</li>
+  </ul>
+</div>
+<div id="customer-impressions">
+  <h3>Utisci klijenata</h3>
+  <p class="impression">{{impressions[slideIndex]}}</p>
+  <a class="prev" (click)="changeSlide(-1)">&#10094;</a>
+  <a class="next" (click)="changeSlide(1)">&#10095;</a>
+</div>
+<simple-notifications></simple-notifications>

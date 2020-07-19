@@ -1,0 +1,80 @@
+<div class="custom-header">
+  <button type="button" id="logo-button-id" (click)="returnToInitiallyState()" [routerLink]="['']">
+  </button>
+  <div id="left-div-id">
+    <button type="button" class="header-button" (click)="buy()" *ngIf="!adminFlag">Prodaja</button>
+    <button type="button" class="header-button" (click)="rent()" *ngIf="!adminFlag">Izdavanje</button>
+    <button type="button" class="header-button" *ngIf="!adminFlag" [routerLink]="['/agents']">Agenti</button>
+    <button type="button" class="header-button" *ngIf="adminFlag" [routerLink]="['/offeredRealEstate']">Ponuđene
+      nekretnine</button>
+    <button type="button" class="header-button" *ngIf="adminFlag" [routerLink]="['/offersInProgress']">Nekretnine u
+      obradi</button>
+    <button type="button" class="header-button" *ngIf="adminFlag" [routerLink]="['/add-real-estate']">Dodajte
+      nekretninu</button>
+  </div>
+  <div id="right-div-id">
+    <button type="button" class="header-button" (click)="isLogIn() ? offerRealEstate() : null" *ngIf="!adminFlag">
+      Ponudite<br>
+      nekretninu
+    </button>
+    <button type="button" class="header-button" *ngIf="!adminFlag" [routerLink]="['/favorites']">
+      Omiljene<br>nekretnine
+    </button>
+    <button type="button" class="header-button" *ngIf="adminFlag" [routerLink]="['/support-chat']">Čet</button>
+    <button type="button" class="header-button" (click)="logInForm('log-in-id')" *ngIf="!email">
+      Logovanje /<br> Registracija
+    </button>
+  </div>
+  <button type="button" id="user-profil-id" class="user-button" *ngIf="email"></button>
+  <div class="dropdown-content">
+    <a href="" [routerLink]="['/profile', _id]">Uredite profil</a>
+    <a href="" (click)="logOut()">Odjavite se</a>
+  </div>
+</div>
+
+<div id="ore-login-notification-id">
+  <button (click)="oreClose()">&times;</button><br>
+  <label>Molimo, ulogujte se.</label>
+</div>
+
+<!-- Added 'header' sufix on inputs in order to avoid possible
+misunderstanding from extended search inputs on change() events -->
+<div id="brief-exploring-options-id">
+  <div class="beo-div">
+    <p class="beo-p">Tip nekretnine:</p>
+    <select id="type-of-real-estate-id-header" class="beo-input" style="width: 80%; height: 70%; font-size: 15px;">
+      <option value="apartment">Stan</option>
+      <option value="house">Kuća</option>
+    </select>
+  </div>
+  <div class="beo-div">
+    <p class="beo-p">Cena do:</p>
+    <input id="max-price-id-header" class="beo-input" type="number" min="0" />
+    <span> €</span>
+  </div>
+  <div class="beo-div">
+    <p class="beo-p">Kvadratura od:</p>
+    <input id="min-m2-id-header" class="beo-input" type="number" />
+    <span> m<sup>2</sup></span>
+  </div>
+  <div class="beo-div">
+    <p class="beo-p">Grad:</p>
+    <select id="city-id-header" class="beo-input" style="width: 80%; height: 70%; font-size: 15px;">
+      <option value="bg">Beograd</option>
+      <option value="ns">Novi Sad</option>
+    </select>
+  </div>
+  <button class="beo-button" (click)="briefSearch()">Pretražite</button>
+</div>
+
+<div id="offer-real-estate-id" class="offer-real-estate">
+  <app-real-estate-offer></app-real-estate-offer>
+</div>
+<div class="log-in" id="log-in-id">
+  <app-login></app-login>
+</div>
+<div class="sign-up" id="sign-up-id">
+  <app-signup></app-signup>
+</div>
+<div id="overlay"></div>
+<simple-notifications></simple-notifications>

@@ -1,0 +1,377 @@
+<div>
+  <div id="search-options-id">
+
+    <div class="so-div">
+      <p class="so-p">Vrsta saradnje:</p>
+      <select class="sel-sel" id="cooperation-id" (change)="onChangeCooperationType($event.target.value)">
+        <option value="sale">Prodaja</option>
+        <option value="rent">Izdavanje</option>
+      </select>
+    </div>
+
+    <div class="so-div">
+      <p class="so-p">Tip nekretnine:</p>
+      <select class="sel-sel" id="type-of-real-estate-id">
+        <option value="apartment">Stan</option>
+        <option value="house">Kuća</option>
+      </select>
+    </div>
+
+    <div class="so-div">
+      <p class="so-p">Grad:</p>
+      <select class="sel-sel" id="city-id" (change)="onChangeCity($event.target.value)">
+        <option value="bg">Beograd</option>
+        <option value="ns">Novi Sad</option>
+      </select>
+    </div>
+
+    <div class="so-div">
+      <p class="so-p" *ngIf="isCityBg">Opština:</p>
+      <p class="so-p" *ngIf="!isCityBg">Naselje:</p>
+      <select class="sel-sel" id="community-id">
+        <option value="ba" *ngIf="isCityBg">Barajevo</option>
+        <option value="vo" *ngIf="isCityBg">Voždovac</option>
+        <option value="vr" *ngIf="isCityBg">Vračar</option>
+        <option value="gr" *ngIf="isCityBg">Grocka</option>
+        <option value="zv" *ngIf="isCityBg">Zvezdara</option>
+        <option value="ze" *ngIf="isCityBg">Zemun</option>
+        <option value="la" *ngIf="isCityBg">Lazarevac</option>
+        <option value="ml" *ngIf="isCityBg">Mladenovac</option>
+        <option value="nb" *ngIf="isCityBg">Novi Beograd</option>
+        <option value="ob" *ngIf="isCityBg">Obrenovac</option>
+        <option value="pa" *ngIf="isCityBg">Palilula</option>
+        <option value="ra" *ngIf="isCityBg">Rakovica</option>
+        <option value="sv" *ngIf="isCityBg">Savski venac</option>
+        <option value="so" *ngIf="isCityBg">Sopot</option>
+        <option value="sg" *ngIf="isCityBg">Stari grad</option>
+        <option value="su" *ngIf="isCityBg">Surčin</option>
+        <option value="cu" *ngIf="isCityBg">Čukarica</option>
+
+        <option value="beg" *ngIf="!isCityBg">Begeč</option>
+        <option value="bud" *ngIf="!isCityBg">Budisava</option>
+        <option value="buk" *ngIf="!isCityBg">Bukovac</option>
+        <option value="vet" *ngIf="!isCityBg">Veternik</option>
+        <option value="kac" *ngIf="!isCityBg">Kać</option>
+        <option value="kis" *ngIf="!isCityBg">Kisač</option>
+        <option value="kov" *ngIf="!isCityBg">Kovilj</option>
+        <option value="led" *ngIf="!isCityBg">Ledinci</option>
+        <option value="nos" *ngIf="!isCityBg">Novi Sad</option>
+        <option value="pet" *ngIf="!isCityBg">Petrovaradin</option>
+        <option value="rum" *ngIf="!isCityBg">Rumenka</option>
+        <option value="srk" *ngIf="!isCityBg">Sremska Kamenica</option>
+        <option value="stl" *ngIf="!isCityBg">Stari Ledinci</option>
+        <option value="ste" *ngIf="!isCityBg">Stepanovićevo</option>
+        <option value="fut" *ngIf="!isCityBg">Futog</option>
+        <option value="cen" *ngIf="!isCityBg">Čenej</option>
+      </select>
+    </div>
+
+    <div>
+      <p class="so-p">Ulica:</p>
+      <input id="street-id" type="text" class="so-input" maxlength="35" placeholder="Unesite naziv ulice" />
+    </div>
+    <label id="street-id-error" class="sre-error"></label>
+
+    <div class="so-div">
+      <p class="so-p">Cena:</p>
+      <input id="price-id" class="so-input" type="number" min="0" />
+      <span class="fixed-text-price"> €</span>
+    </div>
+    <label id="price-id-error" class="sre-error"></label>
+
+
+    <div class="so-div">
+      <p class="so-p">Struktura:</p>
+      <select class="sel-sel" id="struct-id">
+        <option value="0-5">Garsonjera</option>
+        <option value="1-0">Jednosoban</option>
+        <option value="1-5">Jednoiposoban</option>
+        <option value="2-0">Dvosoban</option>
+        <option value="2-5">Dvoiposoban</option>
+        <option value="3-0">Trosoban</option>
+        <option value="3-5">Troiposoban</option>
+        <option value="4-0">Četvorosoban</option>
+        <option value="4-5">Veći</option>
+      </select>
+    </div>
+
+    <div class="so-div">
+      <p class="so-p">Kvadratura:</p>
+      <input id="m2-id" class="so-input" type="number" />
+      <span class="fixed-text-m-2"> m<sup>2</sup></span>
+    </div>
+    <label id="m2-id-error" class="sre-error"></label>
+
+    <div class="so-div">
+      <p class="so-p">Opremljenost:</p>
+      <select class="sel-sel" id="furnished-id">
+        <option value="furnished"> Namešten</option>
+        <option value="half-furnished"> Polunamešten</option>
+        <option value="unfurnished"> Prazan</option>
+      </select>
+    </div>
+
+    <div class="so-div">
+      <p class="so-p">Grejanje:</p>
+      <select class="sel-sel" id="heating-id">
+        <option value="cg"> CG</option>
+        <option value="eg"> EG</option>
+        <option value="ta"> TA</option>
+        <option value="gas"> Gas</option>
+        <option value="float-heating"> Podno</option>
+        <option value="norwegian-radiators"> Norveški radijatori</option>
+      </select>
+    </div>
+
+    <h3 style="font-weight: bold;">Dodatne informacije</h3>
+    <div class="so-div">
+      <p class="so-p">Sprat:</p>
+      <input id="floor-id" class="so-input" type="number" min="0" />
+    </div>
+    <label id="floor-id-error" class="sre-error"></label>
+
+    <div class="so-div">
+      <p class="so-p">Ukupno spratova:</p>
+      <input id="total-number-of-floors-id" class="so-input" type="number" min="0" required />
+    </div>
+    <label id="total-number-of-floors-id-error" class="sre-error"></label>
+
+    <div class="so-div">
+      <p class="so-p">Godina gradnje:</p>
+      <input id="year-of-building-id" class="so-input" type="number" min="1950" required />
+    </div>
+    <label id="year-of-building-id-error" class="sre-error"></label>
+
+    <div class="so-div">
+      <p class="so-p">Stanje:</p>
+      <select class="sel-sel" id="renovation-id">
+        <option value="lux"> Lux</option>
+        <option value="new-building"> Novogradnja</option>
+        <option value="renovated"> Renovirano</option>
+        <option value="old-building"> Starogradnja</option>
+        <option value="under-construction"> U izgradnji</option>
+      </select>
+    </div>
+
+    <div class="so-div">
+      <p class="so-p">Udaljenost od centra:</p>
+      <input id="distance-from-center-of-city-id" class="so-input" type="number" min="0" />
+      <span class="fixed-text-price"> km</span>
+    </div>
+    <label id="distance-from-center-of-city-id-error" class="sre-error"></label>
+
+    <div class="so-check-options sel-arr-parking">
+      <p class="so-p">Parking:</p>
+
+      <input type="checkbox" id="free-building-parking-id">
+      <label for="free-building-parking-id"> Slobodan parking zgrade</label><br>
+
+      <input type="checkbox" id="free-parking-zone-id">
+      <label for="free-parking-zone-id"> Slobodna zona</label><br>
+    </div>
+
+    <div class="so-check-options sel-arr-add-space">
+      <p class="so-p">Dodatni prostor na raspolaganju:</p>
+
+      <input type="checkbox" id="basement-id">
+      <label for="basement-id"> Podrum</label><br>
+
+      <input type="checkbox" id="garage-id">
+      <label for="garage-id"> Garaža</label><br>
+
+      <input type="checkbox" id="terrace-id">
+      <label for="terrace-id"> Terasa</label><br>
+
+      <input type="checkbox" id="parking-id">
+      <label for="parking-id"> Parking</label><br>
+    </div>
+
+    <div class="so-div">
+      <p class="so-p">Opis nekretnine:</p>
+      <textarea id="description-id" class="so-input" type="text" maxlength="250"></textarea>
+    </div>
+    <label id="description-id-error" class="sre-error"></label>
+
+    <h4 style="font-weight: bold;" *ngIf="!isCooperationSale">Uslovi zakupa</h4>
+
+    <div class="so-div" *ngIf="!isCooperationSale">
+      <p class="so-p">Depozit:</p>
+      <input id="deposit-id" class="so-input" type="number" min="0" />
+      <span class="fixed-text-price"> €</span>
+    </div>
+    <label id="deposit-id-error" class="sre-error"></label>
+
+    <div class="so-div" *ngIf="!isCooperationSale">
+      <p class="so-p">Minimalni period zakupa:</p>
+      <input id="minimum-renting-period-id" class="so-input" type="number" min="0" />
+    </div>
+    <label id="minimum-renting-period-id-error" class="sre-error"></label>
+
+    <div class="so-div" *ngIf="!isCooperationSale">
+      <p class="so-p">Period plaćanja:</p>
+      <select class="sel-sel" id="payment-period-id">
+        <option value="monthly"> Mesečno</option>
+        <option value="three-months"> 3 meseca</option>
+      </select>
+    </div>
+
+    <div class="so-div" *ngIf="!isCooperationSale">
+      <p class="so-p">Useljivo:</p>
+      <input id="ready-to-move-in-id" class="so-input" type="text" maxlength="60" />
+    </div>
+    <label id="ready-to-move-in-id-error" class="sre-error"></label>
+
+    <div class="so-check-options sel-arr-pets" *ngIf="!isCooperationSale">
+      <p class="so-p">Dozvoljeni ljubimci:</p>
+
+      <input type="checkbox" id="dog-id">
+      <label for="dog-id"> Pas</label><br>
+
+      <input type="checkbox" id="cat-id">
+      <label for="cat-id"> Mačka</label><br>
+
+      <input type="checkbox" id="aquarium-pets-id">
+      <label for="aquarium-pets-id"> Ljubimci u akvarijumu</label><br>
+
+      <input type="checkbox" id="cage-pets-id">
+      <label for="cage-pets-id"> Ljubimci u kavezu</label><br>
+    </div>
+
+    <h4 style="font-weight: bold;" *ngIf="!isCooperationSale">Mesečni troškovi</h4>
+    <div class="so-div">
+      <p class="so-p">Infostan:</p>
+      <input id="infostan-costs-id" class="so-input" type="number" min="0" />
+    </div>
+    <label id="infostan-costs-id-error" class="sre-error"></label>
+
+    <div class="so-div" *ngIf="!isCooperationSale">
+      <p class="so-p">Kablovska, internet:</p>
+      <input id="katv-and-internet-costs-id" class="so-input" type="number" min="0" />
+    </div>
+
+    <div class="so-div">
+      <p class="so-p">Grejanje:</p>
+      <input id="heating-costs-id" class="so-input" type="number" min="0" />
+    </div>
+    <label id="heating-costs-id-error" class="sre-error"></label>
+
+    <div class="so-div" *ngIf="!isCooperationSale">
+      <p class="so-p">Struja:</p>
+      <select class="sel-sel" id="electricity-costs-id">
+        <option value="by-consumption"> Po potrošnji</option>
+        <option value="fix"> Fiksno</option>
+      </select>
+    </div>
+
+
+    <div class="so-div" *ngIf="isCooperationSale">
+      <p class="so-p">Porez na imovinu:</p>
+      <input id="property-tax-costs-id" class="so-input" type="number" min="0" />
+    </div>
+
+    <div class="so-check-options sel-dic-rs">
+      <p class="so-p">Opremljenost nekretnine:</p>
+
+      <input type="checkbox" id="internet-id">
+      <label for="internet-id"> Internet</label><br>
+
+      <input type="checkbox" id="katv-id">
+      <label for="katv-id"> Kablovska</label><br>
+
+      <input type="checkbox" id="phone-id">
+      <label for="phone-id"> Telefon</label><br>
+
+      <input type="checkbox" id="air-conditioner-id">
+      <label for="air-conditioner-id"> Klima</label><br>
+
+      <input type="checkbox" id="double-bed-id">
+      <label for="double-bed-id"> Francuski krevet</label><br>
+
+      <input type="checkbox" id="single-bed-id">
+      <label for="single-bed-id"> Singl krevet</label><br>
+
+      <input type="checkbox" id="fridge-id">
+      <label for="fridge-id"> Frižider</label><br>
+
+      <input type="checkbox" id="freezer-id">
+      <label for="freezer-id"> Zamrzivač</label><br>
+
+      <input type="checkbox" id="fridge-freezer-id">
+      <label for="fridge-freezer-id"> Frižider sa zamrzivačem</label><br>
+
+      <input type="checkbox" id="stove-id">
+      <label for="stove-id"> Rerna</label><br>
+
+      <input type="checkbox" id="cooker-id">
+      <label for="cooker-id">Šporet</label><br>
+
+      <input type="checkbox" id="washing-machine-id">
+      <label for="washing-machine-id"> Veš mašina</label><br>
+
+      <input type="checkbox" id="shower-id">
+      <label for="shower-id"> Tuš kabina</label><br>
+
+      <input type="checkbox" id="bathtub-id">
+      <label for="bathtub-id"> Kada za kupanje</label><br>
+
+      <input type="checkbox" id="dishwasher-id">
+      <label for="dishwasher-id"> Mašina za sudove</label><br>
+
+      <input type="checkbox" id="tv-id">
+      <label for="tv-id"> Televizor</label><br>
+
+      <input type="checkbox" id="dryer-id">
+      <label for="dryer-id"> Mašina za sušenje veša</label><br>
+
+      <input type="checkbox" id="alarm-id">
+      <label for="alarm-id"> Alarm</label><br>
+    </div>
+
+    <div class="so-check-options sel-dic-ob">
+      <p class="so-p">Opremljenost objekta:</p>
+
+      <input type="checkbox" id="elevator-id">
+      <label for="elevator-id"> Lift</label><br>
+
+      <input type="checkbox" id="interphone-id">
+      <label for="interphone-id"> Interfon</label><br>
+
+      <input type="checkbox" id="video-surveillance-id">
+      <label for="video-surveillance-id"> Video nadzor</label><br>
+
+      <input type="checkbox" id="security-id">
+      <label for="security-id"> Obezbeđenje</label><br>
+
+      <input type="checkbox" id="wheelchair-ramp-id">
+      <label for="wheelchair-ramp-id"> Rampa za invalidska kolica</label><br>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submitRealEstate()" id="form-id">
+    <div class="progress" *ngIf="progress > 0 && progress <= 100">
+      <div class="progress-bar" name="realestate" [style.width]="progress + '%'">
+        <span class="progress-text">{{progress}}% </span>
+      </div>
+    </div>
+    <div>
+      <div style="position: relative; left: 4%;">
+        <span class="btn btn-default btn-file">Izaberite fotografiju
+          <input type="file" id="img-input" name="avatar" multiple accept='image/png,image/jpg,image/jpeg'
+            (change)="uploadPhoto($event)">
+        </span>
+        <label id="img-input-id-error" class="sre-error"></label>
+        <input type="text" class="form-control" readonly id="img-input-name" value="">
+      </div>
+      <div class="parent" *ngIf="showPreview">
+        <img id='img-upload' class="center" />
+      </div>
+      <div class="parent" *ngIf="!showPreview">
+        <img id='img-upload-fake' class="center" />
+      </div>
+    </div>
+    <div>
+      <button class="btn btn-danger btn-block btn-lg" style="margin-bottom: 1.5%;">Unesi nekretninu</button>
+    </div>
+  </form>
+</div>
+<simple-notifications></simple-notifications>

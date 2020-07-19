@@ -1,0 +1,17 @@
+<div id="initial-favorites-id">
+    <div id="list-of-real-estate-id" style="position: center;">
+        <div class="advert-div" *ngFor="let ad of searchResult; let i = index" style="display: flex;">
+            <img src='http://localhost/static/public/{{ad.folderId}}{{ad.mainPhotoId}}' alt="picture"
+                [routerLink]="['/advertisement', ad._id]">
+            <button class="heart-id" id="heart-id-{{i}}"(click)="addToFavourites(i)">{{addedToFavourites[i] ? '&hearts;' : '&#x2661;'}}</button>
+            <div class="ad-informations" [routerLink]="['/advertisement', ad._id]">
+                <p class="street-p">{{ad.street}}</p>
+                <p class="community-p">{{ad.community}}</p>
+                <p class="price-p">{{ad.price}} <span> €</span></p>
+                <p class="m2-and-struct-p"><span>{{ad.m2}}m<sup>2</sup></span><span>{{ad.struct}}</span></p>
+            </div>
+        </div>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+  

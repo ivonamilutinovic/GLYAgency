@@ -1,0 +1,89 @@
+[{
+  "_id": {
+    "$oid": "5edcf295240121261ecd9153"
+  },
+  "agentId": "",
+  "name": "Goran",
+  "email": "pera@gmail.com",
+  "phone": "0601234567",
+  "cooperationType": "sale",
+  "city": "bg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5edcf2b0240121261ecd9154"
+  },
+  "agentId": "",
+  "name": "Mihailo",
+  "email": "pera@gmail.com",
+  "phone": "0620000111",
+  "cooperationType": "sale",
+  "city": "ns",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5edcf2c9240121261ecd9155"
+  },
+  "agentId": "",
+  "name": "Aleksandra",
+  "email": "pera@gmail.com",
+  "phone": "0641110000",
+  "cooperationType": "rent",
+  "city": "ns",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5edcf2d9240121261ecd9156"
+  },
+  "agentId": "",
+  "name": "Luka",
+  "email": "pera@gmail.com",
+  "phone": "06555555555",
+  "cooperationType": "sale",
+  "city": "bg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5edcf305240121261ecd9157"
+  },
+  "agentId": "",
+  "name": "Petar",
+  "email": "pera@gmail.com",
+  "phone": "0633333333",
+  "cooperationType": "sale",
+  "city": "ns",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5edcf320240121261ecd9158"
+  },
+  "agentId": "",
+  "name": "Jovana",
+  "email": "pera@gmail.com",
+  "phone": "06111110111",
+  "cooperationType": "rent",
+  "city": "ns",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5edcf336240121261ecd9159"
+  },
+  "agentId": "",
+  "name": "Danijel",
+  "email": "pera@gmail.com",
+  "phone": "0622222200",
+  "cooperationType": "sale",
+  "city": "bg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5edcf350240121261ecd915a"
+  },
+  "agentId": "",
+  "name": "Nevena",
+  "email": "pera@gmail.com",
+  "phone": "0629999999",
+  "cooperationType": "sale",
+  "city": "ns",
+  "__v": 0
+}]

@@ -1,0 +1,16 @@
+{
+        "mainPhotoId" : "ede6e4705c4de5f4b019c1f727ef3b8a",
+		"folderId" : "4feca73bd01436519203bb1492849a2c6e6c83b7",
+		"cooperation" : "renting",
+        "_id" : 1,
+        "type" : "apartment",
+        "price" : 200,
+        "m2" : 52,
+        "city" : "Krsić",
+        "street" : "Omladinskih brigada",
+        "floor" : 4,
+		"renovation" : "Lux",
+		"additionalSpace" : "Terasa",
+		"heatingCosts" : 2000,
+		"infostanCosts" : 1000
+}

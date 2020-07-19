@@ -1,0 +1,33 @@
+<div>
+  <div class="messenger-container">
+    <section class="msger" class="form-container" style="display:none" *ngIf="permissionChat" #chatsection>
+      <header class="msger-header">
+        <div class="msger-header-title">
+          <i class="fas fa-comment-alt">GLI Agency podrška</i>
+        </div>
+      </header>
+      <main class="msger-chat" id="msger-chat" #msgerchat>
+        <div class="msg left-msg">
+          <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)">
+          </div>
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name">GLI Agency</div>
+            </div>
+            <div class="msg-text">
+              Zdravo! Dobrodosli u GLI agenciju! Naši agenti su dostupni za Vaša pitanja. 😊
+            </div>
+          </div>
+        </div>
+      </main>
+      <input type="text" id="typing" #typing readonly style="outline: none; border: none; background-color: #ffffe3;">
+      <form class="msger-inputarea" id="msger-inputarea" #msgerinputarea>
+        <input type="text" class="msger-input" placeholder="Unesite poruku..." id="msger-input" autocomplete="off"
+          #msgerinput>
+        <button type="submit" class="msger-send-btn">Pošaljite</button>
+      </form>
+    </section>
+  </div>
+  <simple-notifications></simple-notifications>
+  <button (click)="showIt()" id="chat-button-id" *ngIf="permissionChat"></button>
+</div>

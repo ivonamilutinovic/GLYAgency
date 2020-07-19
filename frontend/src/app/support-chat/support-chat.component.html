@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="left">
+      <div class="top">
+      </div>
+      <ul class="people" #people>
+      </ul>
+    </div>
+    <div class="right" #conversation>
+      <div class="top"><span>To: <span class="name"></span></span></div>
+      <div class="write" #write>
+        <form id="msger-inputarea" #forminput>
+          <input type="text" placeholder="Unesite poruku..." id="msger-input" autocomplete="off" #input>
+          <button type="submit" class="send">Pošaljite</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<simple-notifications></simple-notifications>

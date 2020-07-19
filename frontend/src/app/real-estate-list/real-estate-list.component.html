@@ -1,0 +1,293 @@
+<div style="display: flex;">
+  <div id="search-options-id">
+    <div class="so-div">
+      <p class="so-p">Tip nekretnine:</p>
+      <select id="type-of-real-estate-id">
+        <option value="apartment">Stan</option>
+        <option value="house">Kuća</option>
+      </select>
+    </div>
+    <div class="so-div">
+      <p class="so-p">Cena:</p>
+      <input id="min-price-id" class="so-input" type="number" min="0" placeholder="min" />
+      <span class="fixed-text-price"> €</span>
+      <input id="max-price-id" class="so-input" type="number" min="0" placeholder="max" />
+      <span class="fixed-text-price"> €</span>
+    </div>
+    <div class="so-div">
+      <p class="so-p">Kvadratura:</p>
+      <input id="min-m2-id" class="so-input" type="number" placeholder="min" />
+      <span class="fixed-text-m-2">m<sup>2</sup></span>
+      <input id="max-m2-id" class="so-input" type="number" placeholder="max" />
+      <span class="fixed-text-m-2">m<sup>2</sup></span>
+    </div>
+    <div class="so-div">
+      <p class="so-p">Grad:</p>
+      <select id="city-id" (change)="onChangeCity($event.target.value)">
+        <option value="bg">Beograd</option>
+        <option value="ns">Novi Sad</option>
+      </select>
+    </div>
+
+    <div class="so-check-options">
+      <p class="so-p" *ngIf="isCityBg">Opština:</p>
+      <p class="so-p" *ngIf="!isCityBg">Naselje:</p>
+
+      <div *ngIf="isCityBg" class="uncheck">
+        <input type="checkbox" id="ba-id">
+        <label for="ba-id">Barajevo</label><br>
+
+        <input type="checkbox" id="vo-id">
+        <label for="vo-id">Voždovac</label><br>
+
+        <input type="checkbox" id="vr-id">
+        <label for="vr-id">Vračar</label><br>
+
+        <input type="checkbox" id="gr-id">
+        <label for="gr-id"> Grocka</label><br>
+
+        <input type="checkbox" id="zv-id">
+        <label for="zv-id"> Zvezdara</label><br>
+
+        <input type="checkbox" id="ze-id">
+        <label for="ze-id"> Zemun</label><br>
+
+        <input type="checkbox" id="la-id">
+        <label for="la-id"> Lazarevac</label><br>
+
+        <input type="checkbox" id="ml-id">
+        <label for="ml-id"> Mladenovac</label><br>
+
+        <input type="checkbox" id="nb-id">
+        <label for="nb-id"> Novi Beograd</label><br>
+
+        <input type="checkbox" id="ob-id">
+        <label for="ob-id"> Obrenovac</label><br>
+
+        <input type="checkbox" id="pa-id">
+        <label for="pa-id"> Palilula</label><br>
+
+        <input type="checkbox" id="ra-id">
+        <label for="ra-id"> Rakovica</label><br>
+
+        <input type="checkbox" id="sv-id">
+        <label for="sv-id"> Savski venac</label><br>
+
+        <input type="checkbox" id="so-id">
+        <label for="so-id"> Sopot</label><br>
+
+        <input type="checkbox" id="sg-id">
+        <label for="sg-id"> Stari grad</label><br>
+
+        <input type="checkbox" id="su-id">
+        <label for="su-id"> Surčin</label><br>
+
+        <input type="checkbox" id="cu-id">
+        <label for="cu-id"> Čukarica</label><br><br>
+      </div>
+
+
+      <div *ngIf="!isCityBg" class="uncheck">
+        <input type="checkbox" id="beg-id">
+        <label for="beg-id"></label>Begeč<br>
+
+        <input type="checkbox" id="bud-id">
+        <label for="bud-id">Budisava</label><br>
+
+        <input type="checkbox" id="buk-id">
+        <label for="buk-id">Bukovac</label><br>
+
+        <input type="checkbox" id="vet-id">
+        <label for="vet-id"> Veternik</label><br>
+
+        <input type="checkbox" id="kac-id">
+        <label for="kac-id">Kać</label><br>
+
+        <input type="checkbox" id="kis-id">
+        <label for="kis-id"> Kisač</label><br>
+
+        <input type="checkbox" id="kov-id">
+        <label for="kov-id"> Kovilj</label><br>
+
+        <input type="checkbox" id="led-id">
+        <label for="led-id"> Ledinci</label><br>
+
+        <input type="checkbox" id="nos-id">
+        <label for="nos-id"> Novi Sad</label><br>
+
+        <input type="checkbox" id="pet-id">
+        <label for="pet-id"> Petrovaradin</label><br>
+
+        <input type="checkbox" id="rum-id">
+        <label for="rum-id"> Rumenka</label><br>
+
+        <input type="checkbox" id="srk-id">
+        <label for="srk-id"> Sremska Kamenica</label><br>
+
+        <input type="checkbox" id="stl-id">
+        <label for="stl-id"> Stari Ledinci</label><br>
+
+        <input type="checkbox" id="ste-id">
+        <label for="ste-id"> Stepanovićevo</label><br>
+
+        <input type="checkbox" id="fut-id">
+        <label for="fut-id">Futog</label><br>
+
+        <input type="checkbox" id="cen-id">
+        <label for="cen-id"> Čenej</label><br>
+      </div>
+    </div>
+
+
+
+    <div>
+      <div class="so-div">
+        <p class="so-p">Ulica:</p>
+        <input id="street-id" type="text" placeholder="Unesite naziv ulice" />
+      </div>
+      <div class="so-div">
+        <p class="so-p">Mesečne režije:</p>
+        <input id="min-monthly-expenses-id" class="so-input" type="number" min="0" placeholder="od" />
+        <span class="fixed-text-price"> €</span>
+        <input id="max-monthly-expenses-id" class="so-input" type="number" min="0" placeholder="do" />
+        <span class="fixed-text-price"> €</span>
+      </div>
+      <div class="so-div">
+        <p class="so-p">Sprat:</p>
+        <input id="min-floor-id" class="so-input" type="number" min="0" placeholder="od" />
+        <input id="max-floor-id" class="so-input" type="number" min="0" placeholder="do" />
+      </div>
+
+      <div class="so-check-options">
+        <p class="so-p">Tip objekta:</p>
+
+        <input type="checkbox" id="lux-id">
+        <label for="lux-id"> Lux</label><br>
+
+        <input type="checkbox" id="new-building-id">
+        <label for="new-building-id"> Novogradnja</label><br>
+
+        <input type="checkbox" id="renovated-id">
+        <label for="renovated-id"> Renovirano</label><br>
+
+        <input type="checkbox" id="old-building-id">
+        <label for="old-building-id"> Starogradnja</label><br>
+
+        <input type="checkbox" id="under-construction-id">
+        <label for="under-construction-id"> U izgradnji</label><br><br>
+      </div>
+      <div class="so-check-options">
+        <p class="so-p">Grejanje:</p>
+
+        <input type="checkbox" id="cg-id">
+        <label for="cg-id"> CG</label><br>
+
+        <input type="checkbox" id="eg-id">
+        <label for="eg-id"> EG</label><br>
+
+        <input type="checkbox" id="ta-id">
+        <label for="ta-id"> TA</label><br>
+
+        <input type="checkbox" id="gas-id">
+        <label for="gas-id"> Gas</label><br>
+
+        <input type="checkbox" id="float-heating-id">
+        <label for="float-heating-id"> Podno</label><br>
+
+        <input type="checkbox" id="norwegian-radiators-id">
+        <label for="norwegian-radiators-id"> Norveški radijatori</label><br><br>
+      </div>
+      <div class="so-check-options">
+        <p class="so-p">Opremljenost:</p>
+        <input type="checkbox" id="furnished-id">
+        <label for="furnished-id"> Nameštemen</label><br>
+
+        <input type="checkbox" id="half-furnished-id">
+        <label for="half-furnished-id"> Polunamešten</label><br>
+
+        <input type="checkbox" id="unfurnished-id">
+        <label for="unfurnished-id"> Prazan</label><br><br>
+      </div>
+      <div class="so-check-options">
+        <p class="so-p">Struktura:</p>
+
+        <input type="checkbox" id="0-5-id">
+        <label for="0.5-id">Garsonjera</label><br>
+
+        <input type="checkbox" id="1-0-id">
+        <label for="1.0-id">Jednosoban</label><br>
+
+        <input type="checkbox" id="1-5-id">
+        <label for="1.5-id">Jednoiposoban</label><br>
+
+        <input type="checkbox" id="2-0-id">
+        <label for="2.0-id">Dvosoban</label><br>
+
+        <input type="checkbox" id="2-5-id">
+        <label for="2.5-id">Dvoiposoban</label><br>
+
+        <input type="checkbox" id="3-0-id">
+        <label for="3.0-id">Trosoban</label><br>
+
+        <input type="checkbox" id="3-5-id">
+        <label for="3.5-id">Troiposoban</label><br>
+
+        <input type="checkbox" id="4-0-id">
+        <label for="4.0-id">Četvorosoban</label><br>
+
+        <input type="checkbox" id="more-then-4-0-id">
+        <label for="more-then-4-0-id">Veći</label><br><br>
+      </div>
+      <div class="so-check-options">
+        <p class="so-p">Ostalo:</p>
+
+        <input type="checkbox" id="terrace-id">
+        <label for="terrace-id"> Terasa</label><br>
+
+        <input type="checkbox" id="air-conditioner-id">
+        <label for="air-conditioner-id"> Klima</label><br>
+
+        <input type="checkbox" id="elevator-id">
+        <label for="elevator-id"> Lift</label><br>
+
+        <input type="checkbox" id="basement-id">
+        <label for="basement-id"> Podrum</label><br>
+
+        <input type="checkbox" id="phone-id">
+        <label for="phone-id"> Telefon</label><br>
+
+        <input type="checkbox" id="katv-id">
+        <label for="katv-id"> KATV</label><br>
+
+        <input type="checkbox" id="internet-id">
+        <label for="internet-id"> Internet</label><br>
+
+        <input type="checkbox" id="interphone-id">
+        <label for="interphone-id"> Interfon</label><br>
+
+        <input type="checkbox" id="video-surveillance-id">
+        <label for="video-surveillance-id"> Video nadzor</label><br>
+
+        <input type="checkbox" id="parking-id">
+        <label for="parking-id"> Parking</label><br>
+
+        <input type="checkbox" id="garage-id">
+        <label for="garage-id"> Garaža</label><br><br>
+      </div>
+      <button class="so-button" (click)="search()">Pretražite</button>
+    </div>
+  </div>
+  <div id="list-of-real-estate-id">
+    <div class="re-div" *ngFor="let ad of searchResult; let i = index" style="display: flex;">
+      <img src='http://localhost/static/public/{{ad.folderId}}{{ad.mainPhotoId}}' alt="picture"
+        [routerLink]="['/advertisement', ad._id]">
+      <button class="heart-id" (click)="addToFavourites(i)">{{ad.addedToFavorites ? '&hearts;' : '&#x2661;'}}</button>
+      <div class="ad-informations" [routerLink]="['/advertisement', ad._id]">
+        <p class="street-p">{{ad.street}}</p>
+        <p class="community-p">{{ad.community}}</p>
+        <p class="price-p">{{ad.price}} <span> €</span></p>
+        <p class="m2-and-struct-p"><span>{{ad.m2}}m<sup>2</sup></span><span>{{ad.struct}}</span></p>
+      </div>
+    </div>
+  </div>
+  <simple-notifications></simple-notifications>

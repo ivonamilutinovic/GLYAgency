@@ -1,0 +1,108 @@
+<div id="initial-profile-id">
+  <div class="real-estate-div" *ngFor="let elem of array; index as i">
+    <div class="estate-div-left">
+      <div class="estate-left-side">
+        <table>
+          <tr class="rest-data">
+            <td>Ime: </td>
+            <td style="font-weight: bolder;">{{realEstates[2*i].name}}</td>
+          </tr>
+          <tr class="rest-data">
+            <td>Telefon: </td>
+            <td style="font-weight: bolder;">{{realEstates[2*i].phone}}</td>
+          </tr>
+          <tr class="rest-data">
+            <td>Email: </td>
+            <td style="font-weight: bolder;">{{realEstates[2*i].email}}</td>
+          </tr>
+          <tr class="rest-data">
+            <td>Tip saradnje: </td>
+            <td style="font-weight: bolder">{{realEstates[2*i].cooperationType}}</td>
+          </tr>
+          <tr class="rest-data">
+            <td>Grad: </td>
+            <td style="font-weight: bolder">{{realEstates[2*i].city}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="estate-right-side">
+        <button class="add-button"
+          (click)="modeIndicator ===1 ? onAddOffered(2*i) : onAddInProgress(2*i)">{{modeIndicator===1? 'Preuzmite ponudu' : 'Dodajte nekretninu'}}</button>
+        <button class="delete-button"
+          (click)="modeIndicator ===1 ? onDeleteOffered(2*i) : onDeleteInProgress(2*i)">Odbacite<br>ponudu</button>
+      </div>
+    </div>
+
+    <div class="estate-div-right">
+      <div class="estate-left-side">
+        <table>
+          <tr class="rest-data">
+            <td>Ime: </td>
+            <td style="font-weight: bolder;">{{realEstates[2*i+1].name}}</td>
+          </tr>
+          <tr class="rest-data">
+            <td>Telefon: </td>
+            <td style="font-weight: bolder;">{{realEstates[2*i+1].phone}}</td>
+          </tr>
+          <tr class="rest-data">
+            <td>Email: </td>
+            <td style="font-weight: bolder;">{{realEstates[2*i+1].email}}</td>
+          </tr>
+          <tr class="rest-data">
+            <td>Tip saradnje: </td>
+            <td style="font-weight: bolder;">{{realEstates[2*i+1].cooperationType}}</td>
+          </tr>
+          <tr class="rest-data">
+            <td>Grad: </td>
+            <td style="font-weight: bolder;">{{realEstates[2*i+1].city}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="estate-right-side">
+        <button class="add-button"
+          (click)="modeIndicator ===1 ? onAddOffered(2*i+1) : onAddInProgress(2*i+1)">{{modeIndicator===1? 'Preuzmite ponudu' : 'Dodajte nekretninu'}}</button>
+        <button class="delete-button"
+          (click)="modeIndicator ===1 ? onDeleteOffered(2*i+1) : onDeleteInProgress(2*i+1)">Odbacite<br>ponudu</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="real-estate-div" *ngIf="indicator">
+    <div class="estate-div-left">
+      <div class="estate-left-side">
+        <table>
+          <tr class="rest-data">
+            <td>Ime: </td>
+            <td style="font-weight: bolder;">{{realEstates[realEstates.length-1].name}}</td>
+          </tr>
+          <tr class="rest-data">
+            <td>Telefon: </td>
+            <td style="font-weight: bolder;">{{realEstates[realEstates.length-1].phone}}</td>
+          </tr>
+          <tr class="rest-data">
+            <td>Email: </td>
+            <td style="font-weight: bolder;">{{realEstates[realEstates.length-1].email}}</td>
+          </tr>
+          <tr class="rest-data">
+            <td>Tip saradnje: </td>
+            <td style="font-weight: bolder">{{realEstates[realEstates.length-1].cooperationType}}</td>
+          </tr>
+          <tr class="rest-data">
+            <td>Grad: </td>
+            <td style="font-weight: bolder">{{realEstates[realEstates.length-1].city}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="estate-right-side">
+        <button class="add-button"
+          (click)="modeIndicator ===1 ? onAddOffered(realEstates.length-1) : onAddInProgress(realEstates.length-1)">{{modeIndicator===1? 'Preuzmite ponudu' : 'Dodajte nekretninu'}}</button>
+        <button class="delete-button"
+          (click)="modeIndicator ===1 ? onDeleteOffered(realEstates.length-1) : onDeleteInProgress(realEstates.length-1)">Odbacite<br>ponudu</button>
+      </div>
+    </div>
+  </div>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+<simple-notifications></simple-notifications>

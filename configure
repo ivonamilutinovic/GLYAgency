@@ -1,0 +1,17 @@
+# Angular 
+cd frontend 
+npm install
+cd ..
+
+# Node.js
+cd backend
+npm install
+cd ..
+
+# MongoDB
+cd scripts
+mongoimport --db GLIAgencyDataBase --collection realestates --file real-estate.json --jsonArray
+mongoimport --db GLIAgencyDataBase --collection realestateoffers --file real-estate-offers.json --jsonArray
+mongoimport --db GLIAgencyDataBase --collection users --file users.crud.json --jsonArray
+
+cd ..

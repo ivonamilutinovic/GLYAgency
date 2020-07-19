@@ -1,0 +1,67 @@
+<div class="ore-header">
+    <button class="close-button" (click)="closeSignUpForm('sign-up-id'); signUpForm.reset()"><span>&times;</span></button>
+    <h3 align="center">Registrujte se</h3>
+</div>
+<form class ="ore-body" #signUpForm="ngForm">
+    <div class="sign-up-data">
+        <p class="ore-p">E-mail *</p>
+        <input id="newemail" class="ore-input"
+        required
+        ngModel
+        name ="email"
+        type = "text"
+        #newemail = "ngModel"
+        #newemailparam>
+        <label id="newemail-error" class="ore-error"></label>  
+
+        <p class="ore-p">Ime * </p>
+        <input id="firstname" class="ore-input"
+        required
+        ngModel
+        name ="firstname"
+        type = "text"
+        #firstname = "ngModel"
+        #firstnameparam>
+        <label id="firstname-error" class="ore-error"></label> 
+
+        <p class="ore-p">Prezime * </p>
+        <input id="lastname" class="ore-input"
+        required
+        ngModel
+        name ="lastname"
+        type = "text"
+        #lastname = "ngModel"
+        #lastnameparam>
+        <label id="lastname-error" class="ore-error"></label> 
+
+        <p class="ore-p">Lozinka *</p>
+        <input id="newpassword" class="ore-input" style="width: 93%"
+        ngModel
+        name = "password"
+        maxlength = "18"
+        #newpassword = "ngModel"
+        [type] = "passwordFlag1 ? 'text' : 'password' " 	
+        #newpasswordparam>
+        <button type="button" style = "width: 7%" class="show-hide-button fa" [ngClass]="passwordFlag1 ? 'fa-eye' : 'fa-eye-slash'" (click)="changePasswordFlag(1)"></button>
+        <label id="newpassword-error" class="ore-error"></label>  
+
+        <p class="ore-p">Potvrdite lozinku * </p>
+        <input id="confirmpassword" class="ore-input" style="width: 93%"
+        ngModel
+        name = "confirmpassword"
+        maxlength = "18"
+        #confirmpassword = "ngModel"
+        [type] = "passwordFlag2 ? 'text' : 'password' " 	
+        #confirmpasswordparam>
+        <button type="button" style = "width: 7%" class="show-hide-button fa" [ngClass]="passwordFlag2 ? 'fa-eye' : 'fa-eye-slash'" (click)="changePasswordFlag(2)"></button>
+        <label id="confirmpassword-error" class="ore-error"></label>  
+
+        <button class="ore-button" id="sign-up-send-button-id" 
+            (click)="checkSignUpData(newemailparam.value, firstnameparam.value, lastnameparam.value,
+                        newpasswordparam.value, confirmpasswordparam.value) ?
+						signUp(newemailparam.value, firstnameparam.value, lastnameparam.value, newpasswordparam.value) : null">
+            Pošaljite zahtev
+        </button>
+		<label id="signup-error" class="ore-error"></label>  
+    </div>
+</form>

@@ -1,0 +1,35 @@
+<div class="ore-header">
+    <button class="close-button" (click)="closeLogInForm('log-in-id'); logInForm.reset()"><span>&times;</span></button>
+    <h3 align="center">Prijavite se</h3>
+</div>
+
+<form class="ore-body" #logInForm="ngForm">
+    <p class="ore-p">E-mail *</p>
+    <input id="email" class="ore-input"
+    required
+    ngModel
+    name ="email"
+    type = "text"
+    #email = "ngModel"
+    #emailparam>
+    <label id="email-error" class="ore-error"></label>    
+
+    <p class="ore-p">Lozinka *</p>
+    <input id="password" class="ore-input" style="width: 93%"
+    ngModel
+    name = "password"
+    maxlength = "18"
+    #password = "ngModel"
+    [type] = "passwordFlag ? 'text' : 'password' "
+    #passwordparam>
+    <button type="button" style = "width: 7%" class="show-hide-button fa" [ngClass]="passwordFlag ? 'fa-eye' : 'fa-eye-slash'" (click)="changePasswordFlag()"></button>
+    <label id="password-error" class="ore-error"></label>  
+
+    <button class="ore-button" type="submit" id="close-button-id" (click)=" checkLogInData(emailparam.value, passwordparam.value) ? logIn(emailparam.value, passwordparam.value) : null">Pošaljite zahtev</button>
+    <label id="login-error" class="ore-error"></label>  
+	
+	<p class = "sign-up-translation" (click)="changeToSignUpForm('sign-up-id')">Ukoliko nemate nalog, <font color="red">registrujte se</font>. </p>
+</form>
+
+
+

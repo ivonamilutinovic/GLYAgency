@@ -1,0 +1,191 @@
+#search-options-id{
+    width: 32%;
+    padding-left: 1.3%;
+    padding-top: 1.3%;
+    margin: 1.9%;
+    background-color: rgba(188, 143, 143, 0.2);
+    box-shadow: 5px 5px 5px #d8dad7;
+    font-size: 16.9px;
+}
+
+@media screen and (min-width: 1920px){
+    #search-options-id{
+        font-size: 20px;
+    }
+}
+
+#list-of-real-estate-id{
+    width: 55%;
+    margin: 1.9%;
+}
+
+.so-div{
+    padding-right: 0.5%;
+    width: 100%;
+}
+
+.so-p{
+    padding-top: 0.3%;
+    padding-bottom: 0%;
+    font-weight: bolder;
+}
+
+.so-check-options{
+    padding: 0.6%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-right: 5%;
+    background-color: rgba(188, 143, 143, 0.235);
+}
+
+input[type="checkbox"]{
+    transform: scale(1.9);
+    margin-left: 2%;
+}
+
+select{
+    width: 93.9%;
+}
+
+input[type="checkbox"] ~ label{
+    margin-left: 2%;
+}
+
+.so-button{
+    color: rgba(160, 150, 136, 1);
+    background-color: #960005;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 1%;
+    outline: 0.5px solid rgba(150, 0, 5, 0.4);
+    border: none;
+    margin-bottom: 2%;
+    width: 93.9%;
+    height: 2.19%;
+}
+
+.so-button:hover{
+    font-size: 18px;
+}
+
+.so-input{
+    padding-top: 0%;
+    padding-right: 0.5%;
+    width: 93.9%;
+}
+
+.so-input:focus{
+    outline: 0.5px solid rgba(28, 74, 41, 0.7);
+}
+
+.fixed-text-price{
+    /* border: 1px inset #ccc; */
+    position: relative;
+    right: 45px;
+    z-index: 1;
+}
+
+.fixed-text-m-2{
+    /* border: 1px inset #ccc; */
+    position: relative;
+    right: 60px;
+    z-index: 1;
+}
+
+.re-div{
+  position: relative;
+  padding: 0.6%;
+  height: 11.6%;
+  margin-bottom: 1%;
+  background-color: rgba(188, 143, 143, 0.2);
+  box-shadow: 2px 2px 2px #d8dad7;
+  cursor: pointer;
+}
+
+input[type="text"]{
+    width: 93.9%;
+}
+
+img{
+    width: 45%;
+    height: 87%;
+    margin: 2%;
+    margin-bottom: 5%;
+}
+
+.ad-informations{
+    position: relative;
+    margin: 1%;
+    margin-top: 2%;
+}
+
+.street-p{
+    font-size: 21px;
+    font-weight: bold;
+    color: red;
+}
+
+.community-p{
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.price-p{
+    color: red;
+    font-weight: bold;
+    margin-top: 32%;
+    margin-bottom: 5%;
+    font-size: 21px;
+}
+
+.m2-and-struct-p{
+    font-size: 19px;
+    bottom: 3%;
+    position: absolute;
+}
+
+.m2-and-struct-p > span{
+    margin-right: 7%; 
+    padding: 3.5%;
+    background-color: rgba(188, 143, 143, 0.8);
+}
+
+
+@media screen and (min-width: 1920px){
+    .street-p{
+        font-size: 25px;
+    }
+
+    .community-p{
+        font-size: 23px;
+    }
+
+    .price-p{
+        font-size: 25px;
+    }
+
+    .m2-and-struct-p{
+        font-size: 20px;
+    }
+
+    .so-button{
+        font-size: 23px;
+    }
+
+    .so-button:hover{
+        font-size: 24px;
+    }
+}
+
+.heart-id{
+    top: 4%;
+    font-size: 39px;
+    font-weight: bold;
+    color: red;
+    margin-right: 4%;
+    position: absolute;
+    right: 0;
+    border: none;
+    cursor: pointer;
+    background: none;
+}

@@ -1,0 +1,127 @@
+<div id="title">
+  <p><span style="font-size: 30px; color: red;">{{ad.street}}</span><span style="font-size: 24px;">,
+      {{ad.community}}</span></p>
+  <h4>ID nekretnine: {{ad._id}}</h4>
+</div>
+<div id="upper-div-id">
+  <div id="image-slider-id">
+    <img id="images" src='http://localhost/static/public/{{ad.folderId}}{{ad.images[slideIndex]}}'>
+    <a class="prev" (click)="changeSlide(-1)">&#10094;</a>
+    <a class="next" (click)="changeSlide(1)">&#10095;</a>
+  </div>
+  <div id="elementary-characteristics-id">
+    <div>
+      <div>
+        <p id="price-and-favourite-button-id"><span id="price-id">{{ad.price}} €</span>
+          <button id="heart-id" (click)="addToFavourites()">{{ad.addedToFavorites ? '&hearts;' : '&#x2661;'}}</button>
+        </p>
+      </div>
+      <div id="elementary-properties-id">
+        <p><span class="left-value">{{ad.struct}}</span><span class="right-value">{{ad.m2}} m<sup>2</sup></span></p>
+        <p><span class="left-value">{{ad.furnished}}</span><span class="right-value">Grejanje {{ad.heating}}</span>
+        </p>
+      </div>
+    </div>
+    <div id="appointment-id">
+      <select id="day" class="date" (change)="dateListener('day');">
+        <option selected disabled hidden>{{_date.getDate()}}</option>
+        <option [ngValue]="array[i]" *ngFor="let elem of _day_array as array; let i = index">{{array[i]}}</option>
+      </select>
+      <select id="month" class="date" (change)="dateListener('month')">
+        <option selected disabled hidden>{{_getMonthName(_date.getMonth())}}</option>
+        <option [ngValue]="array[i]" *ngFor="let elem of _month_array as array; let i = index">{{array[i]}}</option>
+      </select>
+      <select id="year" class="date" (change)="dateListener('year')">
+        <option selected disabled hidden>{{_date.getFullYear()}}</option>
+        <option [ngValue]="array[i]" *ngFor="let elem of _year_array as array; let i = index">{{array[i]}}</option>
+      </select>
+      <select id="time" class="time">
+        <option [ngValue]="_time_array[0]" selected disabled hidden>{{_time_array[0]}}</option>
+        <option [ngValue]="array[i]" *ngFor="let elem of _time_array as array; let i = index">{{array[i]}}</option>
+      </select>
+      <button id="appointment-button" (click)="makeAppointment()">Zakažite gledanje</button>
+    </div>
+  </div>
+</div>
+<div id="lower-div-id">
+  <div>
+    <h3 style="font-weight: bold;">Dodatne informacije</h3>
+    <p *ngIf="cooperation == 'rent'"><span class="property">Cena po m<sup>2</sup></span><span
+        class="value">{{(ad.price / ad.m2).toFixed()}}</span></p>
+    <p><span class="property">Sprat</span><span class="value">{{ad.floor}}</span></p>
+    <p><span class="property">Ukupno spratova</span><span class="value">{{ad.totalNumberOfFloors}}</span></p>
+    <p><span class="property">Godina gradnje</span><span class="value">{{ad.yearOfBuilding}}</span></p>
+
+    <p><span class="property">Stanje</span><span class="value">{{ad.renovation}}</span></p>
+    <p><span class="property">Udaljenost od centra</span><span class="value">{{ad.distanceFromCenterOfCity}}km</span>
+    </p>
+    <p *ngIf="ad.parking !== []"><span class="property">Parking</span><label
+        *ngFor="let elem of ad.parking as array; let i = index" class="list">{{array[i]}}</label></p>
+    <p *ngIf="ad.additionalSpace !== []"><span class="property">Dodatni prostor na raspolaganju</span><label
+        *ngFor="let elem of ad.additionalSpace as array; let i = index" class="list">{{array[i]}}</label></p>
+  </div>
+  <div class="information-div">
+    <h4 style="font-weight: bold;">Opis nekretnine</h4>
+    <p style="font-size: 17px;">{{ad.description}}</p>
+  </div>
+  <div class="information-div" *ngIf="cooperation == 'rent'">
+    <h4 style="font-weight: bold;">Uslovi zakupa</h4>
+    <p><span class="property">Depozit</span><span class="value">{{ad.deposit}}</span></p>
+    <p><span class="property">Minimalni period zakupa</span><span class="value">{{ad.minimumRentingPeriod}}</span></p>
+    <p><span class="property">Period plaćanja</span><span class="value">{{ad.paymentPeriod}}</span></p>
+    <p><span class="property">Useljivo</span><span class="value">{{ad.readyToMoveIn}}</span></p>
+    <p><span class="property">Dozvoljeni ljubimci</span><span class="value">{{ad.pets}}</span></p>
+  </div>
+  <div class="information-div">
+    <h4 style="font-weight: bold;">Mesečni troškovi</h4>
+    <p>
+      <span class="property" *ngIf="ad.infostanCosts > 0">Infostan</span>
+      <span class="value">{{ad.infostanCosts}}</span></p>
+    <p>
+      <span class="property" *ngIf="cooperation == 'rent' && ad.katvAndInternetCosts > 0">Kablovska, internet</span>
+      <span class="value" *ngIf="cooperation == 'rent' && ad.katvAndInternetCosts > 0">{{ad.katvAndInternetCosts}}</span>
+    </p>
+    <p>
+      <span class="property" *ngIf="cooperation == 'sale' && ad.propertyTaxCosts > 0">Porez na imovinu</span>
+      <span class="value" *ngIf="cooperation == 'sale' && ad.propertyTaxCosts > 0">{{ad.propertyTaxCosts}}</span></p>
+    <p>
+      <span class="property" *ngIf="ad.heatingCosts > 0">Grejanje</span>
+      <span class="value" *ngIf="ad.heatingCosts > 0">{{ad.heatingCosts}}</span>
+    </p>
+    <p>
+      <span class="property">Struja</span>
+      <span class="value">{{ad.electricityCosts}}</span>
+    </p>
+  </div>
+  <div class="information-div">
+    <h2 style="font-weight: bold;">Opremljenost nekretnine</h2>
+    <table>
+      <tr *ngFor="let elem of ad.realEstateEquipment as array; let i = index">
+        <td *ngIf="i % 3 == 0" [ngClass]="array[i].value ? 'available' : 'unavailable'"> {{array[i].key}}</td>
+        <td *ngIf="i % 3 == 0" [ngClass]="array[i+1].value ? 'available' : 'unavailable'"> {{array[i+1].key}}</td>
+        <td *ngIf="i % 3 == 0" [ngClass]="array[i+2].value ? 'available' : 'unavailable'"> {{array[i+2].key}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="information-div">
+    <h2 style="font-weight: bold;">Opremljenost objekta</h2>
+    <table>
+      <tr>
+        <td [ngClass]="ad.buildingEquipment[0].value ? 'available' : 'unavailable'"> {{ad.buildingEquipment[0].key}}
+        </td>
+        <td [ngClass]="ad.buildingEquipment[1].value ? 'available' : 'unavailable'"> {{ad.buildingEquipment[1].key}}
+        </td>
+        <td [ngClass]="ad.buildingEquipment[2].value ? 'available' : 'unavailable'"> {{ad.buildingEquipment[2].key}}
+        </td>
+      </tr>
+      <tr>
+        <td [ngClass]="ad.buildingEquipment[3].value ? 'available' : 'unavailable'"> {{ad.buildingEquipment[3].key}}
+        </td>
+        <td [ngClass]="ad.buildingEquipment[4].value ? 'available' : 'unavailable'"> {{ad.buildingEquipment[4].key}}
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<simple-notifications></simple-notifications>

@@ -37,7 +37,7 @@
     "passport-local-mongoose": "^6.0.1",
     "query-string": "^6.13.0",
     "sharp": "^0.25.3",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.0",
     "web-push": "^3.4.4"
   }
 }
